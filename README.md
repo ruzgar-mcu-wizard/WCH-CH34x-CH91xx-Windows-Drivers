@@ -91,7 +91,7 @@ Advantages:
 - Windows
 - Administrator privileges
 - Windows PnPUtil
-- The complete WCH driver package
+- The complete WCH driver package (included)
 
 ## Disclaimer
 
