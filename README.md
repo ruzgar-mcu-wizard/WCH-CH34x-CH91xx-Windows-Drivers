@@ -86,7 +86,7 @@ Advantages:
 
 **Download the installer directly:**
 
-[CH34x_CH91xx_Driver_Installer_Universal_Windows.cmd]([https://raw.githubusercontent.com/ruzgar-mcu-wizard/WCH-CH34x-CH91xx-Windows-Drivers/main/CH34x_CH91xx_Driver_Pack_Universal_Windows/CH34x_CH91xx_Driver_Installer_Universal_Windows.cmd])
+[CH34x_CH91xx_Driver_Installer_Universal_Windows.cmd](https://raw.githubusercontent.com/ruzgar-mcu-wizard/WCH-CH34x-CH91xx-Windows-Drivers/main/CH34x_CH91xx_Driver_Pack_Universal_Windows/CH34x_CH91xx_Driver_Installer_Universal_Windows.cmd)
 
 ## Requirements
 
