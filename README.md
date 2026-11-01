@@ -82,11 +82,9 @@ Advantages:
 
 **Download the complete repository:**
 
-[Download ZIP](https://github.com/ruzgar-mcu-wizard/WCH-CH34x-CH91xx-Windows-Drivers/archive/refs/heads/main.zip)
+[Download ZIP](https://github.com/ruzgar-mcu-wizard/WCH-CH34x-CH91xx-Windows-Drivers/releases/download/v1.x/CH34x_CH91xx_Driver_Pack_Universal_Windows.zip)
 
-**Download the installer directly:**
-
-[CH34x_CH91xx_Driver_Installer_Universal_Windows.cmd](https://raw.githubusercontent.com/ruzgar-mcu-wizard/WCH-CH34x-CH91xx-Windows-Drivers/main/CH34x_CH91xx_Driver_Pack_Universal_Windows/CH34x_CH91xx_Driver_Installer_Universal_Windows.cmd)
+[Download complete repository ZIP](https://github.com/ruzgar-mcu-wizard/WCH-CH34x-CH91xx-Windows-Drivers/archive/refs/heads/main.zip)
 
 ## Requirements
 
