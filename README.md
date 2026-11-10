@@ -1,19 +1,24 @@
-
 # WCH CH34x / CH91xx Windows Drivers
 
-Universal Windows installation helper for WCH USB-to-Serial drivers.
+A Windows installation helper for the WCH CH34x and CH91xx USB-to-serial driver package.
 
-## Overview
+The repository includes the WCH driver files and a lightweight command-line installer that uses the Windows Driver Store utility, `pnputil`.
 
-This repository provides the original WCH USB-to-Serial driver package with a lightweight command-line installation helper.
+## What it does
 
-The included installer provides an alternative to the original WCH graphical driver installer by using Windows' built-in PnPUtil utility.
+The installer registers the supplied INF package with Windows and requests installation for matching devices.
 
-No separate device detection or driver installation engine is required. Windows handles hardware identification, driver matching, and architecture selection through the supplied INF file.
+The command used by the installer is:
 
-## Supported Devices
+```cmd
+pnputil /add-driver CH341SER.INF /install
+```
 
-The included driver package is intended to support the following WCH devices:
+Windows performs hardware ID matching and selects the appropriate driver section for the detected device and supported architecture.
+
+## Supported devices
+
+The included driver package is intended for WCH USB-to-serial devices in these families:
 
 - CH342
 - CH343
@@ -28,75 +33,79 @@ The included driver package is intended to support the following WCH devices:
 - CH9114
 - CH9143
 
-Actual device compatibility depends on the hardware IDs present in the supplied INF file.
+Compatibility is ultimately determined by the hardware IDs present in the supplied `CH341SER.INF` file.
 
-## Architecture Support
+## Architecture support
 
-The installer supports:
+The package supports these Windows architecture families:
 
 - x86
 - x64 (AMD64)
 - ARM64
 
-ARM32 (NTARM) is not supported by this installation package.
+**ARM32 (NTARM) is not supported by this installation package.**
 
 ## Installation
 
 1. Download or clone this repository.
-2. Extract the files if downloaded as a ZIP archive.
+2. Extract the files if you downloaded an archive.
 3. Run `CH34x_CH91xx_Driver_Installer_Universal_Windows.cmd`.
-4. Approve the Administrator privilege request.
-5. The installer registers the driver using Windows PnPUtil.
+4. Approve the Administrator permission prompt.
+5. Let PnPUtil add the driver package and install it for matching devices.
 
-The installer executes:
+The script requires administrator permissions to add a driver package to the Windows Driver Store.
+
+### Manual installation
+
+From an elevated Command Prompt, run:
 
 ```cmd
 pnputil /add-driver CH341SER.INF /install
 ```
 
-Windows automatically matches connected devices against the hardware IDs in the INF file and selects the appropriate architecture-specific driver section.
+Keep the INF file together with the vendor driver files. The INF references the package components needed by Windows.
 
-## Files
+## Repository contents
 
-| File | Description |
-|---|---|
-| `CH34x_CH91xx_Driver_Installer_Universal_Windows.cmd` | Universal command-line installation helper |
-| `CH341SER.INF` | WCH driver installation information file |
+| File | Purpose |
+| --- | --- |
+| `CH34x_CH91xx_Driver_Installer_Universal_Windows.cmd` | Command-line installation helper |
+| `CH341SER.INF` | WCH driver installation information |
 | Vendor driver files | Original WCH driver package components |
-
-## Why PnPUtil?
-
-The original WCH graphical installer may not work reliably in every environment.
-
-This project offers a simpler alternative using Windows' native Driver Store management utility.
-
-Advantages:
-
-- No dependency on the vendor's graphical installer.
-- Direct INF-based installation.
-- Automatic architecture selection.
-- Automatic hardware ID matching.
-- Uses Windows' built-in driver installation infrastructure.
 
 ## Downloads
 
-**Download the complete repository:**
-
-[Download ZIP](https://github.com/ruzgar-mcu-wizard/WCH-CH34x-CH91xx-Windows-Drivers/releases/download/v1.x/CH34x_CH91xx_Driver_Pack_Universal_Windows.zip)
-
-[Download complete repository ZIP](https://github.com/ruzgar-mcu-wizard/WCH-CH34x-CH91xx-Windows-Drivers/archive/refs/heads/main.zip)
+- [Download the complete repository ZIP](https://github.com/ruzgar-mcu-wizard/WCH-CH34x-CH91xx-Windows-Drivers/archive/refs/heads/main.zip)
+- [Browse the repository](https://github.com/ruzgar-mcu-wizard/WCH-CH34x-CH91xx-Windows-Drivers)
 
 ## Requirements
 
-- Windows
-- Administrator privileges
-- Windows PnPUtil
-- The complete WCH driver package (included)
+- A supported version of Windows.
+- Administrator permissions.
+- The included WCH driver package.
+- Windows PnPUtil.
+
+## Troubleshooting
+
+**The device is not detected after installation**
+
+- Disconnect and reconnect the USB-to-serial device.
+- Check Device Manager for the device's hardware ID.
+- Confirm that the hardware ID appears in the supplied INF file.
+- Check Windows for driver installation errors.
+
+**The installer cannot find the INF file**
+
+- Extract the repository before running the installer.
+- Run the script from the directory containing the driver package.
+- Keep the INF file and referenced vendor files together.
+
+**PnPUtil does not install a driver for the connected device**
+
+The package may not contain a matching hardware ID for that device or Windows architecture. Check the hardware ID and the architecture sections in the INF file.
 
 ## Disclaimer
 
-This is an independent installation helper project.
+This is an independent installation helper and is not affiliated with or endorsed by WCH (Nanjing Qinheng Microelectronics).
 
-WCH (Nanjing Qinheng Microelectronics) is the original developer of the supported hardware and associated drivers. This repository is not affiliated with or endorsed by WCH.
-
-All original driver copyrights and trademarks belong to their respective owners.
+WCH is the original developer of the supported hardware and vendor drivers. All original driver copyrights and trademarks belong to their respective owners.
